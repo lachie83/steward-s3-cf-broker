@@ -5,6 +5,6 @@
       * install steward cofigured in cf mode pointing at the installed s3-cf-broker
       
 # Prereqs
-   * AWS credentials with full S3 access
+   * AWS credentials with full S3 access and access to create and delete users
    * Service name of s3-cf-broker installed in a Kubernetes namespace eg `torpid-skunk-s3-cf-broke.cfbroker.svc.cluster.local`
 
