@@ -1,0 +1,18 @@
+# Default values for steward.
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+
+Name: steward
+ServicePort: 80
+ContainerPort: 8080
+Component: "steward"
+Replicas: 1
+Image: "quay.io/deisci/steward"
+ImageTag: "devel"
+ImagePullPolicy: "Always"
+CfBrokerScheme: "http"
+CfBrokerHostname: "torpid-skunk-s3-cf-broke.cfbroker.svc.cluster.local"
+CfBrokerPort: 3000
+CfBrokerUsername: "username"
+CfBrokerPassword: "password"

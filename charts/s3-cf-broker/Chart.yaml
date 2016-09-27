@@ -1,0 +1,9 @@
+name: s3-cf-broker
+home: https://github.com/cloudfoundry-community/s3-broker
+version: 0.1.0
+description: s3-cf-broker Helm chart for Kubernetes.
+sources:
+  - https://github.com/cloudfoundry-community/s3-broker
+maintainers:
+  - name: Lachlan Evenson
+    email: lachlan@deis.com

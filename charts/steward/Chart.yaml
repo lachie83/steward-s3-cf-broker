@@ -1,0 +1,7 @@
+name: steward
+home: https://github.com/deis/steward
+version: 0.1.0
+description: Steward Helm chart for Kubernetes.
+maintainers:
+  - name: Lachlan Evenson
+    email: lachlan@deis.com
