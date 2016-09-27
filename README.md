@@ -1,4 +1,4 @@
-# Steward S3 CloudFoundary Broker
+# Steward S3 Cloud Foundry Broker
 
    * This repo contains helm charts that will do the following
       * install a configured s3-cf-broker -- https://github.com/cloudfoundry-community/s3-broker
