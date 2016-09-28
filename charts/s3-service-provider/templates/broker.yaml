@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.BrokerName }}"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-broker"
+  annotations:
+    "helm.sh/created": {{.Release.Time.Seconds | quote }}
+spec:
+  ports:
+  - port: {{.Values.CfBrokerPort}}
+    targetPort: {{.Values.CfBrokerPort}}
+  selector:
+    component: "{{.Release.Name}}-broker"
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.BrokerName }}"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-broker"
+  annotations:
+    "helm.sh/created": {{.Release.Time.Seconds | quote }}
+spec:
+  replicas: {{default 1 .Values.Replicas | quote }}
+  template:
+    metadata:
+      name: "{{ printf "%s-broker" .Release.Name | trunc 24 }}"
+      labels:
+        heritage: {{.Release.Service | quote }}
+        release: {{.Release.Name | quote }}
+        chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+        component: "{{.Release.Name}}-broker"
+      annotations:
+        "helm.sh/created": {{.Release.Time.Seconds | quote }}
+    spec:
+      containers:
+      - name: "{{ printf "%s-broker" .Release.Name | trunc 24 }}"
+        image: "{{.Values.BrokerImage}}:{{.Values.BrokerImageTag}}"
+        imagePullPolicy: "{{.Values.BrokerImagePullPolicy}}"
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          value: "{{.Values.AdminAwsAccessKeyId}}"
+        - name: AWS_SECRET_ACCESS_KEY
+          value: "{{.Values.AdminAwsSecretAccessKey}}"
