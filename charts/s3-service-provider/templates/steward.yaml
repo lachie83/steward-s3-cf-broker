@@ -51,10 +51,12 @@ spec:
           value: trace
         - name: STEWARD_MODE
           value: cf
+        - name: WATCH_NAMESPACES
+          value: "{{.Values.StewardWatchNamespaces}}"
         - name: CF_BROKER_SCHEME
           value: "{{.Values.CfBrokerScheme}}"
         - name: CF_BROKER_HOSTNAME
-          value: "{{.Values.CfBrokerHostname}}"
+          value: "{{.Release.Name}}-broker"
         - name: CF_BROKER_PORT
           value: "{{.Values.CfBrokerPort}}"
         - name: CF_BROKER_USERNAME

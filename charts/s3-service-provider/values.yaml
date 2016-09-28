@@ -11,6 +11,7 @@ Replicas: 1
 StewardImage: "quay.io/deisci/steward"
 StewardImageTag: "devel"
 StewardImagePullPolicy: "Always"
+StewardWatchNamespaces: "default,steward"
 
 BrokerName: "s3-broker"
 BrokerImage: "lachlanevenson/s3-broker"
