@@ -1,4 +1,17 @@
 apiVersion: v1
+kind: Secret
+metadata:
+  name: "{{ .Release.Name }}-broker-creds"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-broker"
+data:
+  aws-access-key-id: {{ default "" .Values.AdminAwsAccessKeyId | b64enc | quote }}
+  aws-secret-access-key: {{ default "" .Values.AdminAwsSecretAccessKey | b64enc | quote }}
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: "{{ .Release.Name }}-broker"
@@ -46,6 +59,12 @@ spec:
         imagePullPolicy: "{{.Values.BrokerImagePullPolicy}}"
         env:
         - name: AWS_ACCESS_KEY_ID
-          value: "{{.Values.AdminAwsAccessKeyId}}"
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Release.Name }}-broker-creds"
+              key: aws-access-key-id
         - name: AWS_SECRET_ACCESS_KEY
-          value: "{{.Values.AdminAwsSecretAccessKey}}"
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Release.Name }}-broker-creds"
+              key: aws-secret-access-key
