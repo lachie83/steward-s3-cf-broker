@@ -18,8 +18,6 @@ BrokerImage: "lachlanevenson/s3-broker"
 BrokerImageTag: "latest"
 BrokerImagePullPolicy: "Always"
 CfBrokerScheme: "http"
-# must be a FQDN
-CfBrokerHostname: "s3-broker.steward.svc.cluster.local"
 CfBrokerPort: 3000
 CfBrokerUsername: "username"
 CfBrokerPassword: "password"

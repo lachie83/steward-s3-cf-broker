@@ -56,7 +56,7 @@ spec:
         - name: CF_BROKER_SCHEME
           value: "{{.Values.CfBrokerScheme}}"
         - name: CF_BROKER_HOSTNAME
-          value: "{{.Release.Name}}-broker"
+          value: "{{.Values.BrokerName}}.{{.Release.Namespace}}.svc.cluster.local"
         - name: CF_BROKER_PORT
           value: "{{.Values.CfBrokerPort}}"
         - name: CF_BROKER_USERNAME
