@@ -14,12 +14,10 @@
 kind: Secret
 apiVersion: v1
 data:
-  name: <base64 enc bucket name>
+  name: <s3 bucket name>
   password: <AWS_SECRET_KEY>
   username: <AWS_ACCESS_KEY>
 ```  
       
 # Prereqs
    * AWS credentials with full S3 and IAM access
-   * Service name of s3-cf-broker installed in a Kubernetes namespace eg `torpid-skunk-s3-cf-broke.cfbroker.svc.cluster.local`
-
