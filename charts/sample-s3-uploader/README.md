@@ -1,0 +1,1 @@
+helm install . --name s3-uploader  --namespace=steward --replace
