@@ -20,5 +20,8 @@ CfBrokerPort: 3000
 CfBrokerUsername: "username"
 CfBrokerPassword: "password"
 
+CfBrokerServiceId: "98FF26D0-2E01-11E5-9184-FEFF819CDC9F"
+CfBrokerPlanId: "EAAD05D8-2E01-11E5-9184-FEFF819CDC9F"
+
 AdminAwsAccessKeyId: ""
 AdminAwsSecretAccessKey: ""
