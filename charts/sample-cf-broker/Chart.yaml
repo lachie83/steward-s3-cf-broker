@@ -1,9 +1,0 @@
-name: sample-cf-broker
-home: https://github.com/deis/cf-sample-broker/
-version: 0.1.0
-description: sample-cf-broker Helm chart for Kubernetes.
-sources:
-  - https://github.com/deis/cf-sample-broker/
-maintainers:
-  - name: Lachlan Evenson
-    email: lachlan@deis.com
