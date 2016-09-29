@@ -20,6 +20,6 @@ data:
 ```  
       
 # Prereqs
-   * AWS credentials with full S3 access and access to create and delete users
+   * AWS credentials with full S3 and IAM access
    * Service name of s3-cf-broker installed in a Kubernetes namespace eg `torpid-skunk-s3-cf-broke.cfbroker.svc.cluster.local`
 
