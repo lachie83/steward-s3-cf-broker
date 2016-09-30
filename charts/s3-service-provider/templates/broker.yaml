@@ -57,6 +57,10 @@ spec:
       - name: "{{ printf "%s-broker" .Release.Name | trunc 24 }}"
         image: "{{.Values.BrokerImage}}:{{.Values.BrokerImageTag}}"
         imagePullPolicy: "{{.Values.BrokerImagePullPolicy}}"
+        command: ["/s3-broker", "--config=/config/broker-config.json"]
+        volumeMounts:
+        - mountPath: /config
+          name: config-volume
         env:
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
@@ -68,3 +72,7 @@ spec:
             secretKeyRef:
               name: "{{ .Release.Name }}-broker-creds"
               key: aws-secret-access-key
+      volumes:
+        - name: config-volume
+          configMap:
+            name: "{{ .Release.Name }}-broker-config"
