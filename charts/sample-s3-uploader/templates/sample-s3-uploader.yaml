@@ -1,3 +1,22 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{.Values.SecretName}}
+  namespace: {{.Release.Namespace}}
+  labels:
+    type: service-plan-claim
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-{{.Values.Component}}"
+  annotations:
+    "helm.sh/created": {{.Release.Time.Seconds | quote }}
+data:
+  service-id: "98FF26D0-2E01-11E5-9184-FEFF819CDC9F"
+  plan-id: "EAAD05D8-2E01-11E5-9184-FEFF819CDC9F"
+  claim-id: "asdasd7234213"
+  action: "create"
+  target-name: "{{.Values.SecretName}}"
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
